@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 98%;
+    --foreground: 224 10% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 224 10% 10%;
+    --primary: 221 83% 53%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 14% 94%;
+    --secondary-foreground: 224 10% 20%;
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 220 14% 92%;
+    --accent-foreground: 224 10% 20%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 90%;
+    --input: 220 13% 90%;
+    --ring: 221 83% 53%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 222 20% 8%;
+    --foreground: 213 31% 91%;
+    --card: 222 20% 11%;
+    --card-foreground: 213 31% 91%;
+    --primary: 221 83% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 222 20% 16%;
+    --secondary-foreground: 213 31% 80%;
+    --muted: 222 20% 14%;
+    --muted-foreground: 215 20% 55%;
+    --accent: 222 20% 18%;
+    --accent-foreground: 213 31% 91%;
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 222 20% 18%;
+    --input: 222 20% 18%;
+    --ring: 221 83% 60%;
+  }
+
+  * { border-color: hsl(var(--border)); }
+  body { background: hsl(var(--background)); color: hsl(var(--foreground)); }
+
+  ::-webkit-scrollbar { width: 6px; height: 6px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  ::-webkit-scrollbar-thumb { background: hsl(var(--border)); border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: hsl(var(--muted-foreground)); }
+}
+
+@layer utilities {
+  .animate-fade-in { animation: fade-in 0.3s ease forwards; }
+  .animate-strike { animation: strike 0.3s ease forwards; }
+
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(6px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes strike {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+
+  .priority-urgent { @apply text-red-500 bg-red-500/10 border-red-500/20; }
+  .priority-high { @apply text-orange-500 bg-orange-500/10 border-orange-500/20; }
+  .priority-medium { @apply text-blue-500 bg-blue-500/10 border-blue-500/20; }
+  .priority-low { @apply text-muted-foreground bg-muted border-border; }
+
+  .note-yellow { @apply bg-yellow-50 border-yellow-200 dark:bg-yellow-950/30 dark:border-yellow-800/40; }
+  .note-blue { @apply bg-blue-50 border-blue-200 dark:bg-blue-950/30 dark:border-blue-800/40; }
+  .note-green { @apply bg-green-50 border-green-200 dark:bg-green-950/30 dark:border-green-800/40; }
+  .note-pink { @apply bg-pink-50 border-pink-200 dark:bg-pink-950/30 dark:border-pink-800/40; }
+  .note-purple { @apply bg-purple-50 border-purple-200 dark:bg-purple-950/30 dark:border-purple-800/40; }
+}
