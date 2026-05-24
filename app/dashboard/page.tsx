@@ -6,7 +6,7 @@ import { BookmarksWidget } from '@/components/dashboard/bookmarks-widget'
 import { StatsBar } from '@/components/dashboard/stats-bar'
 
 export default async function DashboardPage() {
-  const supabase = createClient()
+  const supabase = await createClient()
   const { data: { user } } = await supabase.auth.getUser()
   if (!user) return null
 
